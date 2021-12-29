@@ -57,7 +57,7 @@ const Home = () => {
                 onClick={() => setToggleSidebar(false)}
               />
             </div>
-            <Sidebar user={user && user} closeToggle={setToggleSidebar} />
+            <Sidebar closeToggle={setToggleSidebar} user={user && user} />
           </div>
         )}
       </div>
@@ -70,5 +70,6 @@ const Home = () => {
     </div>
   );
 };
-
+//1:29:43
+// sanity start
 export default Home;
