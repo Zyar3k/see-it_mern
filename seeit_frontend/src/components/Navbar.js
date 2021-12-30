@@ -21,7 +21,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         </div>
         <div className="flex gap-3 ">
           <Link to={`user-profile/${user?._id}`} className="hidden md:block">
-            <img 
+            <img
               src={user.image}
               alt="user-pic"
               className="w-14 h-12 rounded-lg "
@@ -35,8 +35,6 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           </Link>
         </div>
       </div>
-      // 1:59:15
-      // sanity start
     );
   }
 
