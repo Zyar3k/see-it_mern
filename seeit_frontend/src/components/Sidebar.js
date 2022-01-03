@@ -2,44 +2,21 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
-
 import logo from "../assets/logo.png";
+import { categories } from "../utils/data";
 
-const isNotActiveStyles =
+const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
-const isActiveStyles =
-  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize";
+const isActiveStyle =
+  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize";
 
-// dummy categories
-const categories = [
-  {
-    name: "Animals",
-    icon: <RiHomeFill />,
-  },
-  {
-    name: "Art",
-    icon: <RiHomeFill />,
-  },
-  {
-    name: "Design",
-    icon: <RiHomeFill />,
-  },
-  {
-    name: "Photography",
-    icon: <RiHomeFill />,
-  },
-  {
-    name: "Wallpapers",
-    icon: <RiHomeFill />,
-  },
-];
-
-const Sidebar = ({ user, closeToggle }) => {
+const Sidebar = ({ closeToggle, user }) => {
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
+
   return (
-    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar ">
+    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
       <div className="flex flex-col">
         <Link
           to="/"
@@ -52,7 +29,7 @@ const Sidebar = ({ user, closeToggle }) => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? isActiveStyles : isNotActiveStyles
+              isActive ? isActiveStyle : isNotActiveStyle
             }
             onClick={handleCloseSidebar}
           >
@@ -66,12 +43,15 @@ const Sidebar = ({ user, closeToggle }) => {
             <NavLink
               to={`/category/${category.name}`}
               className={({ isActive }) =>
-                isActive ? isActiveStyles : isNotActiveStyles
+                isActive ? isActiveStyle : isNotActiveStyle
               }
               onClick={handleCloseSidebar}
               key={category.name}
             >
-              {category.icon}
+              <img
+                src={category.image}
+                className="w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
