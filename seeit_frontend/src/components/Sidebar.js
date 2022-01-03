@@ -54,7 +54,7 @@ const Sidebar = ({ user, closeToggle }) => {
             className={({ isActive }) =>
               isActive ? isActiveStyles : isNotActiveStyles
             }
-            onCLick={handleCloseSidebar}
+            onClick={handleCloseSidebar}
           >
             <RiHomeFill />
             Home
